@@ -1,0 +1,51 @@
+# ROS指令
+
+### 杀死指定进程
+
+killall -9 roscore && killall -9 rosmaster
+
+### 打开D435i相机驱动程序
+
+roslaunch realsense2_camera rs_camera.launch
+
+### 打开奥比中光相机驱动程序
+
+roslaunch astra_camera astra.launch
+
+### 运行编写的摄像头点云数据降采样程序
+
+rosrun my_pcl_tutorial example input:=/camera/depth/points
+
+### 深度图转换伪面阵激光
+
+rosrun depthimage_to_laserscan  depthimage_to_laserscan image:=/camera/depth/image_rect_raw
+
+# 007
+
+192.168.1.100 22
+
+export ROS_MASTER_URI=http://192.168.1.100:11311
+
+export ROS_HOSTNAME=192.168.1.165
+
+ssh smarcorobot@192.168.1.100 密码yancheng
+
+### 打开机器人底盘
+
+roslaunch turn_on_smarco_robot turn_on_smarco_robot.launch  第一个文件
+
+机器人地盘模式，IMU LASER CAMERA base-footprint 静态变化
+
+启动底盘，robot_pose_ekf
+
+### 打开建图
+
+roslaunch turn_on_smarco_robot mapping.launch
+
+开启雷达，开启建图算法
+
+![1680163206515](C:\Users\zhh\AppData\Roaming\Typora\typora-user-images\1680163206515.png)
+
+
+
+![1680163216491](C:\Users\zhh\AppData\Roaming\Typora\typora-user-images\1680163216491.png)
